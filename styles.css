@@ -126,3 +126,17 @@ body {
     text-decoration: none;
     color: #FFFFFF;
 }
+
+.background1{
+    position: absolute;
+    width: 375px;
+    height: 267px;
+    
+    top: 434px;
+}
+
+.background1 img{
+    position: absolute;
+    width: 100%;
+    height: 267px;
+}
