@@ -5,7 +5,7 @@
 }
 body {
     min-width: 320px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif, 'Open Sans';
 }
 
 
@@ -46,3 +46,83 @@ body {
     color: #08A6E4;
 }
 
+.opening-section{
+    position: absolute;
+    height: 213px;
+    width: 310px;
+    left: 33px;
+    top: 170px;
+    border-radius: 0px;
+}
+
+.opening-section h3{
+    position: absolute;
+    width: 162px;
+    height: 41px;
+    left: 73.59px;
+    top: 0px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 41px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.opening-section p{
+    position: absolute;
+    width: 308px;
+    height: 57px;
+    left: 1.56px;
+    top: 61px;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+
+    text-align: center;
+
+    color: #000000;
+    }
+
+#boton button{
+    position: absolute;
+    width: 310px;
+    height: 67px;
+    left: 0px;
+    top: 146px;
+    position: absolute;
+    background: #08A6E4;
+    box-shadow: 5px 10px 14px rgba(7, 172, 230, 0.29);
+    border-radius: 40px;
+    border-color: rgba(7, 172, 230, 0.29);
+
+}
+
+
+
+#boton button a{
+    position: absolute;
+    width: 127px;
+    height: 22px;
+    left: 92px;
+    top: 22px;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    
+
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+}
