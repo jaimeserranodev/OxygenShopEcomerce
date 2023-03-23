@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stykes.scss">
     <script src="https://kit.fontawesome.com/0d4d477689.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,22 +15,25 @@
 <body>
     <!--HEADER-->
     <header>
-        <div class="container">
+        <div class="container-header">
             <div class="logo">
                 <p>OXYGENShop</p>
             </div>
             <div class="nav-bar">
-                <i id="icono-nav" class="fa-solid fa-bars"></i>
-                <!--
-                <ul></ul>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i id="icono-nav" class="fa-solid fa-bars"></i>
+                </label>
+                <ul>
                     <li><a href="#">WHY US</a></li>
-                    <li><a href="#"></a>BENEFITS</li>
-                    <li><a href="#"></a>PRICES</li>
-                    <li><a href="#"></a>CONTACT</li>
-                -->
+                    <li><a href="#">BENEFITS</a></li>
+                    <li><a href="#">PRICES</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
             </div>
         </div>
     </header>
+
     <main>
         <!--opening-section-->
         <div class="opening-section">
@@ -44,6 +48,7 @@
         <div class="background1">
             <img id="img-back" src="imagenes/Background.png" alt="">
         </div>
+
         <div class="tx-most-popular">
             <p>The most popular sales platform in country</p>
         </div>
@@ -91,6 +96,102 @@
             </div>
             <div class="contenedor-box4">
                 <img id="trompeta" src="imagenes/Trumpet 1.png" alt="">
+            </div>
+
+        </div>
+
+        <!-----------PRICING------------->
+        <h1  id="h1-pricing">Pricing</h1>
+
+        <div class="contenedor-pricing">
+            <div class="column-pricing1">
+                <div class="box1">
+                    <p id="titulo">Basic</p>
+                    <p id="precio">$0</p>
+                </div>
+                <div class="box2">
+                    <li id="capacidad"><i id="checkon" class="fa-regular fa-square-check"></i>100 MB HDD</li>
+                    <li id="dominios"><i id="checkon" class="fa-regular fa-square-check"></i>1 Subdomain</li>
+                    <li id="emails"><i id="checkon" class="fa-regular fa-square-check"></i>2 E-mails</li>
+                    <li id="años"><i id="checkoff" class="fa-regular fa-rectangle-xmark"></i>Two years license</li>
+                    <li id="soporte"><i id="checkoff" class="fa-regular fa-rectangle-xmark"></i>Full support</li>
+                </div>
+            </div>
+            <button id="begin-btn"><p>Begin</p></button>
+        </div>
+
+        <div class="contenedor-pricing2">
+            <div class="column-pricing2">
+                <div class="box3">
+                <p id="titulo">Professional</p>
+                <p id="precio">$25</p>
+                <p id="oferta">Limited offer</p>
+            </div>
+                <div class="box4">
+                    
+                    <li id="capacidad"><i id="checkon" class="fa-regular fa-square-check"></i>2 GB HDD</li>
+                    <li id="dominios"><i id="checkon" class="fa-regular fa-square-check"></i>5 Subdomains</li>
+                    <li id="emails"><i id="checkon" class="fa-regular fa-square-check"></i>20 E-mails</li>
+                    <li id="años"><i id="checkoff" class="fa-regular fa-rectangle-xmark"></i>Two years license</li>
+                    <li id="soporte"><i id="checkoff" class="fa-regular fa-rectangle-xmark"></i>Full support</li>
+                </div>
+            </div>
+            <button id="begin-btn2"><p>Begin</p></button>
+        </div>
+
+            <div class="column-pricing3">
+                <div class="contenedor-pricing3">
+                    <div class="column-pricing3">
+                        <div class="box5">
+                            <p id="titulo">Premium</p>
+                            <p id="precio">$60</p>
+                            <p id="oferta">Limited offer</p>
+                        </div>
+                        <div class="box6">
+                            <li id="capacidad"><i id="checkon" class="fa-regular fa-square-check"></i>2 GB HDD</li>
+                            <li id="dominios"><i id="checkon" class="fa-regular fa-square-check"></i>5 Subdomains</li>
+                            <li id="emails"><i id="checkon" class="fa-regular fa-square-check"></i>20 E-mails</li>
+                            <li id="años"><i id="checkon" class="fa-regular fa-square-check"></i>Two years license</li>
+                            <li id="soporte"><i id="checkon" class="fa-regular fa-square-check"></i>Full support</li>
+                        </div>
+                    </div>
+                    <button id="begin-btn3"><p>Begin</p></button>
+                </div>
+            </div>
+<!--------------- FORMULARIO CONTACTO ----------------->
+        <div class="formulario">
+            <p id="titulo1">Any Questions?</p>
+            <p id="titulo2">Leave your email address or call us!</p>
+            <p id="contacto"><i class="fa-regular fa-envelope"></i> info@bestshop.xyz</p>
+            <p id="contacto"><i class="fa-solid fa-phone"></i> 123 456 789</p>
+        </div>
+
+        <div class="formulario2">
+            <p>NAME</p>
+            <input type="text">
+            <p>EMAIL</p>
+            <input type="email">
+        </div>
+
+        <!-----------------LEGAL---------------------->
+        <div class="legal">
+            <input id="checkbox" type="checkbox" checked>
+
+            <p>I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the European Parliament’s and Council of the European Union Regulation on the Protection of Natural Persons as of 27 April 2016, with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (Data Protection Directive)</p>
+            
+        </div>
+        <div class="send">
+            <button id="send"><p id="tx-btn">Send</p></button>
+        </div>
+
+        <div class="footer">
+            <div class="column1">
+                <p id="footer-logo">OXYGENShop</p>
+                <p id="copiright">© 2022 OXYGEN, All Rights Reserved</p>
+            </div>
+            <div class="column2">
+                <i id="twitter" class="fa-brands fa-twitter"></i>
+                <i id="facebook" class="fa-brands fa-facebook"></i>
             </div>
 
         </div>
