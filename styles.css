@@ -43,6 +43,7 @@ body {
 }
 
 .nav-bar ul li {
+    margin-right: 75px;
     width: auto;
     height: auto;
     list-style: none;
@@ -76,7 +77,7 @@ body {
     display: none;
 }
 
-@media (max-width: 858px){
+@media (max-width: 950px){
     .checkbtn{
         display: block;
     }
@@ -717,7 +718,6 @@ main{
     transform: translateY(-25px);
 }
 
-
 #begin-btn2 p{
     font-family: 'Open Sans';
     font-style: normal;
@@ -726,9 +726,6 @@ main{
     line-height: 18px;
     color: #FFFFFF;
 }
-
-
-
 
 /*----------------Contenedor 3 -------------------*/
 
@@ -817,7 +814,6 @@ main{
     transform: translateY(-25px);
 }
 
-
 #begin-btn3 p{
     font-family: 'Open Sans';
     font-style: normal;
@@ -830,7 +826,6 @@ main{
 .contenedor-pricing3 .box{
     padding: 30px;
 }
-
 
 /* ---------FORMULARIO -------------- */
 
@@ -902,8 +897,6 @@ main{
     border-left: none;
     border-right: none;
 }
-
-
 
 /*-------------------LEGAL----------------*/
 .legal{
@@ -1018,4 +1011,193 @@ main{
 #facebook{
     color:  #3B5998;
     font-size: 24px;
+}
+
+
+/*------------------ DESKTOP --------------------------*/
+
+@media only screen and (min-width: 1000px) {
+
+    .container-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    .contenedor-rectangulo{
+        display: grid;
+        grid-template-rows: repeat(3, 3fr);
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 37px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+    /* --------RECTANGULOS---------*/
+
+    /* --------RECTANGULO 1---------*/
+    .contenedor-box{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        align-items: center;
+        text-align: left;
+        height: 370px;
+
+    }
+
+    .grid-rectangulo1{
+        grid-column: 2/3;
+    }
+
+    .grid-rectangulo2{
+        display: grid;
+        grid-column: 1/2;
+        margin-top: -350px;
+        align-items: center;
+        justify-self: center;
+        width: 327.64px;
+        border-bottom: 4px solid #FB3B64;
+    }
+
+    .contenedor-box #icono-1{
+        font-size: 200px;
+        transform: translateX(60px);
+    }
+
+    .contenedor-box .mac{
+        font-size: 300px;
+        width: 366.44px;
+        height: 199px;
+        justify-content: center;
+        align-items: center;
+        
+        margin-top: -100px;
+        
+    }
+
+
+    /* --------RECTANGULO 2---------*/
+    .contenedor-box2{
+        height: 370px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        align-items: center;
+        text-align: left;
+        
+        margin-top: 50px;
+        
+    }
+
+    .grid-rectangulo3 #phone{
+        width: 400px;
+        height: 328px;
+    }
+
+    .grid-rectangulo3 #icono-1{
+        font-size: 300px;
+        transform: translateY(150px);
+    }
+
+    .grid-rectangulo4{
+        width: 327.64px;
+        border-bottom: 4px solid #08A6E4;
+    }
+
+    /* --------RECTANGULO 3---------*/
+    .contenedor-box3-4{
+        
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
+    .contenedor-box3{
+        
+        margin-left: 15%;
+        height: 370px;
+        display: grid;
+        grid-column: 1/2;
+        align-items: center;
+        text-align: left;
+    }
+        .grid-rectangulo5{
+        display: grid;
+    
+    }
+    .contenedor-box4{
+        display: grid;
+        background-color: #55DFB4;
+        grid-column: 2/3;
+        margin-right: ;
+        margin-top: 3%;
+        height: 370px;
+    }
+    #trompeta{
+        margin-top: 70px;
+    }
+
+/* --------PRICING---------*/
+    .h1-pricing{
+        margin-top: 100px;
+    }
+
+    .pricing-box {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-pricing1{
+        grid-column: 1/2;
+    }
+
+    .contenedor-pricing2{
+        grid-column: 2/3;
+    }
+
+    .contenedor-pricing3{
+        grid-column: 3/4;
+    }
+
+    /* --------FORMULARIO---------*/
+
+    .grip-formulario{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+        justify-content: center;
+        align-items: start;
+    }
+
+    .formulario{
+        margin-left: 250px;
+    }
+
+    .contacto{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    #contacto{
+        margin-right: 60px;
+    }
+
+    .legal{
+        margin-left: 0;
+    }
+
+    .footer{
+        justify-content: space-between;
+    }
+
 }
