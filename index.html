@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.scss">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.scss">
     <script src="https://kit.fontawesome.com/0d4d477689.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,10 +25,10 @@
                     <i id="icono-nav" class="fa-solid fa-bars"></i>
                 </label>
                 <ul>
-                    <li><a href="#">WHY US</a></li>
-                    <li><a href="#">BENEFITS</a></li>
-                    <li><a href="#">PRICES</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#opening-section">WHY US</a></li>
+                    <li><a href="#contenedor-rectangulo">BENEFITS</a></li>
+                    <li><a href="#pricing">PRICES</a></li>
+                    <li><a href="#grip-formulario">CONTACT</a></li>
                 </ul>
             </div>
         </div>
@@ -36,7 +36,7 @@
 
     <main>
         <!--opening-section-->
-        <div class="opening-section">
+        <div id="opening-section" class="opening-section">
             <h3>Sell More!</h3>
             <p>Open shop on our platform and increase your sales</p>
             <div id="boton">
@@ -76,7 +76,7 @@
         </div>
 
         <!--RECTÁNGULO 3-->
-        <div class="contenedor-rectangulo">
+        <div id="contenedor-rectangulo" class="contenedor-rectangulo">
             <div class="contenedor-box">
                 <div class="grid-rectangulo1">
                     <i id="icono-1" class="fa-solid fa-circle"></i>
@@ -98,24 +98,23 @@
                 </div>
             </div>
             <div class="contenedor-box3-4">
-            <div class="contenedor-box3">
-                <div class="grid-rectangulo5">
-                    <p id="tx1">Increase recognition your brand!</p>
-                    <p id="tx2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi recusandae quam molestiae vero officiis quisquam libero! Eligendi facilis modi dicta.</p>
+                <div class="contenedor-box3">
+                    <div class="grid-rectangulo5">
+                        <p id="tx1">Increase recognition your brand!</p>
+                        <p id="tx2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi recusandae quam molestiae vero officiis quisquam libero! Eligendi facilis modi dicta.</p>
+                    </div>
+                    
                 </div>
-                
-            </div>
-            <div class="contenedor-box4">
-                <div class="grid-rectangulo6">
-                    <img id="trompeta" src="imagenes/Trumpet 1.png" alt="">
+                <div class="contenedor-box4">
+                    <div class="grid-rectangulo6">
+                        <img id="trompeta" src="imagenes/Trumpet 1.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-
         <!-----------PRICING------------->
         <h1  id="h1-pricing">Pricing</h1>
-        <div class="pricing-box">
+        <div id="pricing" class="pricing-box">
             <div class="contenedor-pricing">
                 <div class="column-pricing1">
                     <div class="box1">
@@ -173,7 +172,7 @@
                 </div>
         </div>
 <!--------------- FORMULARIO CONTACTO ----------------->
-        <div class="grip-formulario">
+        <div id="grip-formulario" class="grip-formulario">
             <div class="formulario">
                 <p id="titulo1">Any Questions?</p>
                 <p id="titulo2">Leave your email address or call us!</p>
@@ -191,7 +190,7 @@
 
                 <!-----------------LEGAL---------------------->
         <div class="legal">
-            <input id="checkbox" type="checkbox" checked>
+            <input id="checkbox" type="checkbox">
 
             <p>I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the European Parliament’s and Council of the European Union Regulation on the Protection of Natural Persons as of 27 April 2016, with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (Data Protection Directive)</p>
             
@@ -210,11 +209,23 @@
                 <p id="copiright">© 2022 OXYGEN, All Rights Reserved</p>
             </div>
             <div class="column2">
-                <i id="twitter" class="fa-brands fa-twitter"></i>
-                <i id="facebook" class="fa-brands fa-facebook"></i>
+                <a href="https://twitter.com/?lang=es"><i id="twitter" class="fa-brands fa-twitter"></a></i>
+                <a href="https://es-es.facebook.com/"><i id="facebook" class="fa-brands fa-facebook"> </a></i>
             </div>
 
         </div>
+        <div id="scroll-progress"></div>
+        <script>
+            window.addEventListener("scroll", function() {
+                const scrollProgress = document.getElementById("scroll-progress");
+                const scrollPosition = window.scrollY;
+                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const percentage = (scrollPosition / totalHeight) * 100;
+                scrollProgress.textContent = `${Math.round(percentage)}%`;
+});
+
+        </script>
+
     </main>
 
 </body>
