@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="/styles/styles.scss">
+    
     <script src="https://kit.fontawesome.com/0d4d477689.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
     <title>OXYGENShop</title>
 </head>
 <body>
+    
     <!--HEADER-->
     <header>
         <div class="container-header">
@@ -27,7 +30,7 @@
                 <ul>
                     <li><a href="#opening-section">WHY US</a></li>
                     <li><a href="#contenedor-rectangulo">BENEFITS</a></li>
-                    <li><a href="#pricing">PRICES</a></li>
+                    <li><a href="#h1-pricing">PRICES</a></li>
                     <li><a href="#grip-formulario">CONTACT</a></li>
                 </ul>
             </div>
@@ -172,35 +175,33 @@
                 </div>
         </div>
 <!--------------- FORMULARIO CONTACTO ----------------->
-        <div id="grip-formulario" class="grip-formulario">
-            <div class="formulario">
-                <p id="titulo1">Any Questions?</p>
-                <p id="titulo2">Leave your email address or call us!</p>
-                <div class="contacto">
-                    <p id="contacto"><i class="fa-regular fa-envelope"></i> info@bestshop.xyz</p>
-                    <p id="contacto"><i class="fa-solid fa-phone"></i> 123 456 789</p>
-                </div>
+    <div id="grip-formulario" class="grip-formulario">
+    <div class="formulario">
+            <p id="titulo1">Any Questions?</p>
+            <p id="titulo2">Leave your email address or call us!</p>
+        <div class="contacto">
+            <p id="contacto"><i class="fa-regular fa-envelope"></i> info@bestshop.xyz</p>
+            <p id="contacto"><i class="fa-solid fa-phone"></i> 123 456 789</p>
             </div>
-
-            <div class="formulario2">
-                <p>NAME</p>
-                <input type="text">
-                <p>EMAIL</p>
-                <input type="email">
-
-                <!-----------------LEGAL---------------------->
-        <div class="legal">
-            <input id="checkbox" type="checkbox">
-
-            <p>I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the European Parliament’s and Council of the European Union Regulation on the Protection of Natural Persons as of 27 April 2016, with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (Data Protection Directive)</p>
+        </div>
+    
+        <form class="formulario2">
+            <p>NAME</p>
+            <input type="text" id="nameInput">
+            <p>EMAIL</p>
+            <input type="email" id="emailInput">
+        
+            <!-----------------LEGAL---------------------->
+            <div class="legal">
+                <input id="checkbox" type="checkbox">
+                <p>I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the European Parliament’s and Council of the European Union Regulation on the Protection of Natural Persons as of 27 April 2016, with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (Data Protection Directive)</p>
+            </div>
             
-        </div>
-        <div class="send">
-            <button id="send"><p id="tx-btn">Send</p></button>
-        </div>
+            <div class="send">
+                <button id="send" type="submit" value="clicked"><p id="tx-btn">Send</p></button>
             </div>
         </div>
-
+        </form>
         
         <!-----------------FOOTER---------------------->
         <div class="footer">
@@ -214,19 +215,11 @@
             </div>
 
         </div>
+        
         <div id="scroll-progress"></div>
-        <script>
-            window.addEventListener("scroll", function() {
-                const scrollProgress = document.getElementById("scroll-progress");
-                const scrollPosition = window.scrollY;
-                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const percentage = (scrollPosition / totalHeight) * 100;
-                scrollProgress.textContent = `${Math.round(percentage)}%`;
-});
-
-        </script>
-
+        
+        <button id="return-to-top"><i id="icono-return-top" class="fa-solid fa-arrow-up fa-bounce"></i></button>
     </main>
-
+    
 </body>
 </html>

@@ -7,6 +7,10 @@ body {
     font-family: 'Raleway', sans-serif, 'Open Sans';
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container-header{
     position: fixed;
     display: flex;
@@ -45,8 +49,14 @@ body {
             letter-spacing: 3.28px;
             text-transform: uppercase;
             color: #A5A5A5;
+            transition: all 0.3s ease-in-out;
+        }
+        a:hover{
+            background: none;
+            color: black;
         }
 }
+
 
 .checkbtn{
     display: none;
@@ -463,6 +473,7 @@ main{
             width: 80%;
             display: inline-block;
             margin:0px;
+            overflow: hidden;
                 .box1{
                     width: 40%;
                     height: 200px;
@@ -845,6 +856,8 @@ main{
         }
     }
 
+    
+
 #tx-btn{
     font-family: 'Open Sans';
     font-style: normal;
@@ -1085,13 +1098,44 @@ main{
 }
 
 #scroll-progress {
+    display: flex;
     position: fixed;
-    bottom: 15px;
-    right: 10px;
-    padding: 5px 10px;
+    width: 50px;
+    height: 50px;
+    bottom: 100px;
+    right: 20px;
+    padding: auto;
     background-color: #08A6E4;
+    align-items: center;
+    justify-content: center;
     color: white;
-    font-size: 20px;
+    
     font-weight: bold;
-    border-radius: 100%;
+    border-radius: 50%;
+}
+
+#return-to-top {
+    display:inline-block;
+    position: fixed;
+    bottom: 175px;
+    right: 20px;
+    background-color: #08A6E4;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 99;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#icono-return-top {
+    color: white;
+    font-size: large;
+}
+#return-to-top:hover {
+    opacity: 0.8;
 }
