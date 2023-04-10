@@ -1122,8 +1122,11 @@ main {
   border-color: red;
 }
 
+#modal {
+  display: none;
+}
+
 .modal {
-  display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -1153,4 +1156,4 @@ main {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}/*# sourceMappingURL=styles.css.map */
+}
