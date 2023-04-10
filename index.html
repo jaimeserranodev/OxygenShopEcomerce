@@ -185,20 +185,20 @@
             </div>
         </div>
     
-        <form class="formulario2">
+        <form id="formulario2" class="formulario2">
             <p>NAME</p>
-            <input type="text" id="nameInput">
+            <input id="nameInput" type="text" minlength="2" maxlength="100" required >
             <p>EMAIL</p>
-            <input type="email" id="emailInput">
+            <input id="emailInput" type="email" required>
         
             <!-----------------LEGAL---------------------->
             <div class="legal">
-                <input id="checkbox" type="checkbox">
+                <input id="checkbox" type="checkbox" required>
                 <p>I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process under the European Parliament’s and Council of the European Union Regulation on the Protection of Natural Persons as of 27 April 2016, with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (Data Protection Directive)</p>
             </div>
             
             <div class="send">
-                <button id="send" type="submit" value="clicked"><p id="tx-btn">Send</p></button>
+                <button  id="send" type="submit" value="clicked"><p id="tx-btn">Send</p></button>
             </div>
         </div>
         </form>
@@ -216,6 +216,17 @@
 
         </div>
         
+        <!-----------------NEWSLETTER----------------------
+        <div id="newsletterModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Subscribe to our newsletter</h2>
+                <input type="email" id="newsletterEmail" placeholder="Email Address">
+                <button id="subscribeBtn">Subscribe</button>
+            </div>
+        </div>
+    -->
+
         <div id="scroll-progress"></div>
         
         <button id="return-to-top"><i id="icono-return-top" class="fa-solid fa-arrow-up fa-bounce"></i></button>
