@@ -32,39 +32,39 @@ window.addEventListener("scroll", function() {
 });
 
 
+// ENVIO DATOS FORMULARIO
 
-
- // Función para validar correo electrónico
-
-
-function validateEmail(email) {
-    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(String(email).toLowerCase());
-}
-
-const formulario2 = document.getElementById('formulario2');
-const nameInput = document.getElementById('nameInput');
-const emailInput = document.getElementById('emailInput');
-const checkbox = document.getElementById('checkbox');
-
-function validarFormulario () {
-    let isValid = false;
-    if (isValid){
-        console.log("Es valido");
-    }
-    else{
-        console.log("no es valido");
-        return isValid;
-    }
-    
-}
-
-
-
-
-
-
-
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('#formulario2');
+    const nameInput = document.querySelector('#nameInput');
+    const emailInput = document.querySelector('#emailInput');
+    const checkbox = document.querySelector('#checkbox');
+  
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+  
+      if (!checkbox.checked) {
+        alert('Please accept the legal disclaimer');
+        return;
+      }
+  
+      const formData = new FormData(form);
+  
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: nameInput.value,
+          email: emailInput.value,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    });
+  });
 
 
 
