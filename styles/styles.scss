@@ -1158,6 +1158,8 @@ main{
 .modal {
     
     position: fixed;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
     left: 0;
     top: 0;
@@ -1186,4 +1188,19 @@ font-weight: bold;
 color: black;
 text-decoration: none;
 cursor: pointer;
+}
+
+.progreso {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: #FFFFFF;
+}
+
+#barra-progreso-horizontal {
+    width: 0%;
+    height: 6px;
+    background-color: #07ACE6;
 }

@@ -1,128 +1,145 @@
 // PORCENTAJE DE PÁGINA 
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    window.addEventListener("scroll", function() {
-        const scrollProgress = document.getElementById("scroll-progress");
-        const scrollPosition = window.scrollY;
-        const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const percentage = (scrollPosition / totalHeight) * 100;
-        scrollProgress.textContent = `${Math.round(percentage)}%`;
-    });
-
-
-// BOTÓN RETURN TO TOP 
-
-const returnToTopButton = document.getElementById("return-to-top");
-
-returnToTopButton.addEventListener("click", function () {
-    window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-    });
-});
-
 window.addEventListener("scroll", function() {
-    if (window.scrollY > 1000) {
-    returnToTopButton.style.display = "block";
-    } else {
-    returnToTopButton.style.display = "none";
-    }
-});
+    progresoScroll();
 });
 
+function progresoScroll(){
+    let scroll = document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-// ENVIO DATOS FORMULARIO
+    let progreso = (scroll/height)*100;
+    document.getElementById("barra-progreso-horizontal").style.width = progreso+"%";
+};
 
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector('#formulario2');
-    const nameInput = document.querySelector('#nameInput');
-    const emailInput = document.querySelector('#emailInput');
-    const checkbox = document.querySelector('#checkbox');
-    
-        form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    
-        if (!checkbox.checked) {
-            alert('Please accept the legal disclaimer');
-            return;
-        }
-    
-        const formData = new FormData(form);
-    
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify({
-            name: nameInput.value,
-            email: emailInput.value,
-            }),
-            headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-        });
-    });
+// window.addEventListener('scroll', progresoBarraHorizontal);
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     window.addEventListener("scroll", function() {
+//         const scrollProgress = document.getElementById("scroll-progress");
+//         const scrollPosition = window.scrollY;
+//         const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//         const percentage = (scrollPosition / totalHeight) * 100;
+//         scrollProgress.textContent = `${Math.round(percentage)}%`;
+//     });
 
 
-// MODAL
-document.addEventListener("DOMContentLoaded", function() {
 
-    const modal = document.getElementById("modal");
-    const closeModal = document.getElementById("closeModal");
-    const form = document.getElementById("newsletterForm");
+
+// // BOTÓN RETURN TO TOP 
+
+// const returnToTopButton = document.getElementById("return-to-top");
+
+// returnToTopButton.addEventListener("click", function () {
+//     window.scrollTo({
+//     top: 0,
+//     behavior: 'smooth',
+//     });
+// });
+
+// window.addEventListener("scroll", function() {
+//     if (window.scrollY > 1000) {
+//     returnToTopButton.style.display = "block";
+//     } else {
+//     returnToTopButton.style.display = "none";
+//     }
+// });
+// });
+
+
+// // ENVIO DATOS FORMULARIO
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const form = document.querySelector('#formulario2');
+//     const nameInput = document.querySelector('#nameInput');
+//     const emailInput = document.querySelector('#emailInput');
+//     const checkbox = document.querySelector('#checkbox');
     
-    // Mostrar modal después de 5 segundos
-    setTimeout(() => {
-        if (!localStorage.getItem("modalClosed")) {
-            showModal();
-        }
-    }, 5000);
+//         form.addEventListener('submit', (event) => {
+//         event.preventDefault();
     
-    // Mostrar modal al bajar 25% de la página
-    window.addEventListener("scroll", () => {
-        if (!localStorage.getItem("modalClosed")) {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-            const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0;
-            const clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+//         if (!checkbox.checked) {
+//             alert('Please accept the legal disclaimer');
+//             return;
+//         }
     
-            if (scrollTop / (scrollHeight - clientHeight) >= 0.25) {
-                showModal();
-            }
-        }
-    });
+//         const formData = new FormData(form);
     
-    // Función para mostrar el modal
-    function showModal() {
-        modal.style.display = "block";
-    }
+//         fetch('https://jsonplaceholder.typicode.com/posts', {
+//             method: 'POST',
+//             body: JSON.stringify({
+//             name: nameInput.value,
+//             email: emailInput.value,
+//             }),
+//             headers: {
+//             'Content-type': 'application/json; charset=UTF-8',
+//             },
+//         })
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+//         .catch(error => console.error(error));
+//         });
+//     });
+
+
+// // MODAL
+// document.addEventListener("DOMContentLoaded", function() {
+
+//     const modal = document.getElementById("modal");
+//     const closeModal = document.getElementById("closeModal");
+//     const form = document.getElementById("newsletterForm");
     
-    // Función para cerrar el modal
-    function hideModal() {
-        modal.style.display = "none";
-        localStorage.setItem("modalClosed", "true");
-    }
+//     // Mostrar modal después de 5 segundos
+//     setTimeout(() => {
+//         if (!localStorage.getItem("modalClosed")) {
+//             showModal();
+//         }
+//     }, 5000);
     
-    closeModal.addEventListener("click", hideModal);
+//     // Mostrar modal al bajar 25% de la página
+//     window.addEventListener("scroll", () => {
+//         if (!localStorage.getItem("modalClosed")) {
+//             const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+//             const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0;
+//             const clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
     
-    // Cerrar el modal al hacer clic fuera del contenido
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            hideModal();
-        }
-    });
+//             if (scrollTop / (scrollHeight - clientHeight) >= 0.25) {
+//                 showModal();
+//             }
+//         }
+//     });
     
-    // Cerrar el modal con la tecla "Esc"
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" || event.key === "Esc") {
-            hideModal();
-        }
-    });
+//     // Función para mostrar el modal
+//     function showModal() {
+//         modal.style.display = "block";
+//     }
     
-    });
-// comentario
+//     // Función para cerrar el modal
+//     function hideModal() {
+//         modal.style.display = "none";
+//         localStorage.setItem("modalClosed", "true");
+//     }
+    
+//     closeModal.addEventListener("click", hideModal);
+    
+//     // Cerrar el modal al hacer clic fuera del contenido
+//     modal.addEventListener("click", (event) => {
+//         if (event.target === modal) {
+//             hideModal();
+//         }
+//     });
+    
+//     // Cerrar el modal con la tecla "Esc"
+//     document.addEventListener("keydown", (event) => {
+//         if (event.key === "Escape" || event.key === "Esc") {
+//             hideModal();
+//         }
+//     });
+    
+//     });
+
+
+    
 
 
 
