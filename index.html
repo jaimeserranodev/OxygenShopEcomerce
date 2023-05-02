@@ -123,6 +123,14 @@
         </div>
         <!-----------PRICING------------->
         <h1  id="h1-pricing">Pricing</h1>
+        <div class="selector">
+            <span>Select the currency</span>
+            <select name="cambioMoneda" id="cambioMoneda">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
         <div id="pricing" class="pricing-box">
             <div class="contenedor-pricing">
                 <div class="column-pricing1">
@@ -180,6 +188,28 @@
                     </div>
                 </div>
         </div>
+<!--------------- SLIDER ----------------->
+<div class="slider">
+    <div class="dots">
+        <span ></span><span ></span><span ></span>
+    </div>
+
+    <div class="slides">
+        <img name="Imagen" >
+    </div>
+    
+    <div class="prev-btn">
+        <button>&#8249;</button>
+    </div>
+    <div class="next-btn">
+        <button>&#8250;</button>
+    </div>
+    
+</div>
+
+
+
+
 <!--------------- FORMULARIO CONTACTO ----------------->
     <div id="grip-formulario" class="grip-formulario">
     <div class="formulario">
@@ -222,17 +252,18 @@
 
         </div>
         
-        <!-----------------NEWSLETTER------------------------>
-        <!-- <div id="modal" class="modal">
+        <!-- ---------------NEWSLETTER------------------------>
+        <div id="modal" class="modal">
             <div class="modal-content">
                 <span id="closeModal" class="close">&times;</span>
                 <h2>Subscribe to our newsletter</h2>
                 <form id="newsletterForm">
-                    <input type="email" id="email" placeholder="Your email" required>
-                    <button type="submit">Subscribe</button>
+                    <input type="email" id="emailNews" placeholder="Your email" required>
+                    <button id ="btnSub" type="submit">Subscribe</button>
                 </form>
             </div>
-        </div> -->
+        </div>  
+        
     
 
         <div id="scroll-progress"></div>

@@ -12,7 +12,7 @@ function progresoScroll(){
     document.getElementById("barra-progreso-horizontal").style.width = progreso+"%";
 };
 
-// window.addEventListener('scroll', progresoBarraHorizontal);
+// PORCENTAJE DE PÁGINA CIRCULO
 
 document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", function() {
@@ -22,9 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const percentage = (scrollPosition / totalHeight) * 100;
         scrollProgress.textContent = `${Math.round(percentage)}%`;
     });
-
-
-
 
 // BOTÓN RETURN TO TOP 
 
@@ -38,233 +35,211 @@ returnToTopButton.addEventListener("click", function () {
 });
 
 window.addEventListener("scroll", function() {
-    if (window.scrollY > 1000) {
-    returnToTopButton.style.display = "block";
+        if (window.scrollY > 1000) {
+        returnToTopButton.style.display = "block";
+        } else {
+        returnToTopButton.style.display = "none";
+        }
+    });
+});
+
+
+// ENVIO DATOS FORMULARIO CON FETCH
+
+document.addEventListener("DOMContentLoaded", function(){
+    const form = document.getElementById('formulario2');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nameInput = document.getElementById('nameInput');
+        const emailInput = document.getElementById('emailInput');
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+                name: nameInput.value,
+                email: emailInput.value,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+});
+});
+
+// MODAL
+
+document.addEventListener("DOMContentLoaded", function(){
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+    const form = document.getElementById("newsletterForm");
+    let modalShown = false;
+
+    // Funcion para mostral el modal a los 5segundos
+    function showModal(){
+        setTimeout(() => {
+            if (!modalShown) {
+                modal.style.display = "block";
+                modalShown = true; 
+            }
+        }, 5000);
+    };
+    showModal();
+    // Funcion para mostrar modal al bajar 25% scroll
+    function showModalScroll (){
+        const scrollPosition = window.scrollY;
+        const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const percentage = (scrollPosition / totalHeight) * 100;
+            if(!modalShown && percentage > 25){
+                modal.style.display = "block"
+                modalShown = true;
+            }
+    }
+    window.addEventListener("scroll", showModalScroll);
+
+    //Funcion para cerrar el Modal
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+    //Función para cerrar Div pulsando Escape
+    window.addEventListener("keyup",function(e){
+        if(e.key == "Escape") {
+            modal.style.display="none";
+        }
+    });
+    //Funcion para cerrar Div pulsando fuera del pop-up NO FUNCIONA
+    modal.addEventListener("mousedown", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+// Funcion para guardar email en localStorage
+    const botonSubscribe = document.getElementById("btnSub");
+
+    function guardarLocalstorage() {
+        const emailInput = document.getElementById("emailNews");
+        let email = emailInput.value;
+        localStorage.setItem("email", JSON.stringify(email));
+        modal.style.display = "none";
+        modalShown = true;
+    }
+    
+    botonSubscribe.addEventListener("click", guardarLocalstorage);
+
+    if (localStorage.getItem("email")) {
+        modal.style.display = "none";
+        modalShown = true; 
     } else {
-    returnToTopButton.style.display = "none";
+        botonSubscribe.addEventListener("click", guardarLocalstorage);
     }
 });
+
+// SELECTOR MONEDA
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cambioMoneda = document.getElementById("cambioMoneda");
+
+    cambioMoneda.addEventListener("change", function() {
+    const monedaSeleccionada = cambioMoneda.value;
+    obtenerTiposDeCambio(monedaSeleccionada);
+    });
 });
+function obtenerTiposDeCambio(currency) {
+    const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`;
 
-
-// // ENVIO DATOS FORMULARIO
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     const form = document.querySelector('#formulario2');
-//     const nameInput = document.querySelector('#nameInput');
-//     const emailInput = document.querySelector('#emailInput');
-//     const checkbox = document.querySelector('#checkbox');
-    
-//         form.addEventListener('submit', (event) => {
-//         event.preventDefault();
-    
-//         if (!checkbox.checked) {
-//             alert('Please accept the legal disclaimer');
-//             return;
-//         }
-    
-//         const formData = new FormData(form);
-    
-//         fetch('https://jsonplaceholder.typicode.com/posts', {
-//             method: 'POST',
-//             body: JSON.stringify({
-//             name: nameInput.value,
-//             email: emailInput.value,
-//             }),
-//             headers: {
-//             'Content-type': 'application/json; charset=UTF-8',
-//             },
-//         })
-//         .then(response => response.json())
-//         .then(data => console.log(data))
-//         .catch(error => console.error(error));
-//         });
-//     });
-
-
-// // MODAL
-// document.addEventListener("DOMContentLoaded", function() {
-
-//     const modal = document.getElementById("modal");
-//     const closeModal = document.getElementById("closeModal");
-//     const form = document.getElementById("newsletterForm");
-    
-//     // Mostrar modal después de 5 segundos
-//     setTimeout(() => {
-//         if (!localStorage.getItem("modalClosed")) {
-//             showModal();
-//         }
-//     }, 5000);
-    
-//     // Mostrar modal al bajar 25% de la página
-//     window.addEventListener("scroll", () => {
-//         if (!localStorage.getItem("modalClosed")) {
-//             const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-//             const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0;
-//             const clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
-    
-//             if (scrollTop / (scrollHeight - clientHeight) >= 0.25) {
-//                 showModal();
-//             }
-//         }
-//     });
-    
-//     // Función para mostrar el modal
-//     function showModal() {
-//         modal.style.display = "block";
-//     }
-    
-//     // Función para cerrar el modal
-//     function hideModal() {
-//         modal.style.display = "none";
-//         localStorage.setItem("modalClosed", "true");
-//     }
-    
-//     closeModal.addEventListener("click", hideModal);
-    
-//     // Cerrar el modal al hacer clic fuera del contenido
-//     modal.addEventListener("click", (event) => {
-//         if (event.target === modal) {
-//             hideModal();
-//         }
-//     });
-    
-//     // Cerrar el modal con la tecla "Esc"
-//     document.addEventListener("keydown", (event) => {
-//         if (event.key === "Escape" || event.key === "Esc") {
-//             hideModal();
-//         }
-//     });
-    
-//     });
-
-
-    
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const tiposDeCambio = data.rates;
+        
+        const precioUSD = tiposDeCambio.USD;
+        const precioEUR = tiposDeCambio.EUR;
+        const precioGBP = tiposDeCambio.GBP;
+        
+        const precioElements = document.querySelectorAll("#precio");
+        precioElements.forEach(element => {
+            switch (currency) {
+                case "USD":
+                    element.textContent = `$${precioUSD}`;
+                    break;
+                case "EUR":
+                    element.textContent = `€${precioEUR}`;
+                    break;
+                case "GBP":
+                    element.textContent = `£${precioGBP}`;
+                    break;
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error al obtener los tipos de cambio:", error);
+    });
+}
 
 
 
 
+// SLIDER
 
+document.addEventListener("DOMContentLoaded", function() {
+    let imagenes = [
+        "/imagenes/pexels-ezra-comeau-2387418.jpg",
+        "/imagenes/pexels-francesco-ungaro-2325446.jpg",
+        "/imagenes/pexels-jaime-reimer-2662116.jpg"
+    ];
 
+    let sliderDerecha = document.querySelector(".next-btn");
+    let sliderIzquierda = document.querySelector(".prev-btn");
+    let contador = 0;
 
+    function moverDerecha() {
+        contador++;
+        if (contador >= imagenes.length) {
+            contador = 0;
 
+        }
+        document.getElementsByName("Imagen")[0].src = imagenes[contador];
+    }
 
+    document.getElementsByName("Imagen")[0].src = imagenes[0];
+    sliderDerecha.addEventListener("click", moverDerecha);
 
+    function moverIzquierda() {
+        contador--;
+        if (contador < 0) {
+            contador = imagenes.length - 1;
+        }
+        document.getElementsByName("Imagen")[0].src = imagenes[contador];
+    }
+    sliderDerecha.addEventListener("click", moverDerecha);
+    sliderIzquierda.addEventListener("click", moverIzquierda);
+    function actualizarDots() {
+        let dots = document.querySelectorAll(".dots span");
+        dots.forEach((dot, index) => {
+            if (index === contador) {
+                dot.classList.add("active");
+            } else {
+                dot.classList.remove("active");
+            }
+        });
+    }
 
-
-
-
-
-
-
-
-
-
-// formulario2.addEventListener('submit', (e) => {
-    
-
-//     if (nameInput.value.length < 2 || nameInput.value.length > 100) {
-//         nameInput.style.borderColor = 'red';
-//         isValid = false;
-//     } else {
-//         nameInput.style.borderColor = '';
-//     }
-
-//     if (!validateEmail(emailInput.value)) {
-//         emailInput.style.borderColor = 'red';
-//         isValid = false;
-//     } else {
-//         emailInput.style.borderColor = '';
-//     }
-
-//     if (!checkbox.checked) {
-//         checkbox.style.borderColor = 'red';
-//         isValid = false;
-//     } else {
-//         checkbox.style.borderColor = '';
-//     }
-
-//     if (isValid) {
-//         console.log("Es valido el formulario");
-//     } else {
-//         console.log("No es valido");
-//     }
-//     e.preventDefault();
-//     let isValid = true;
-//     // if (isValid) {
-//     //     fetch('https://jsonplaceholder.typicode.com/posts', {
-//     //         method: 'POST',
-//     //         body: JSON.stringify({
-//     //             name: nameInput.value,
-//     //             email: emailInput.value
-//     //                 }),
-//     //                 headers: {
-//     //                     'Content-type': 'application/json; charset=UTF-8'
-//     //                 }
-//     //             })
-//     //             .then(response => response.json())
-//     //             .then(json => console.log(json));
-//     //         }
-// });
-
-//         // Modal para suscripción al boletín
-//         const modal = document.getElementById("newsletterModal");
-//         const closeBtn = document.querySelector(".close");
-//         const subscribeBtn = document.getElementById("subscribeBtn");
-//         const newsletterEmail = document.getElementById("newsletterEmail");
-
-//         function showModal() {
-//             if (!sessionStorage.getItem("modalClosed")) {
-//                 modal.style.display = "block";
-//             }
-//         }
-
-//         setTimeout(showModal, 5000);
-
-//         window.addEventListener("scroll", () => {
-//             const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
-//             if (scrollPercentage > 25) {
-//                 showModal();
-//             }
-//         });
-
-//         closeBtn.onclick = () => {
-//             modal.style.display = "none";
-//             sessionStorage.setItem("modalClosed", true);
-//         };
-
-//         window.onclick = (event) => {
-//             if (event.target === modal) {
-//                 modal.style.display = "none";
-//                 sessionStorage.setItem("modalClosed", true);
-//             }
-//         };
-
-//         window.addEventListener("keydown", (event) => {
-//             if (event.key === "Escape" && modal.style.display === "block") {
-//                 modal.style.display = "none";
-//                 sessionStorage.setItem("modalClosed", true);
-//             }
-//         });
-
-//         subscribeBtn.addEventListener("click", () => {
-//             if (validateEmail(newsletterEmail.value)) {
-//                 fetch('https://jsonplaceholder.typicode.com/posts', {
-//                     method: 'POST',
-//                     body: JSON.stringify({
-//                         email: newsletterEmail.value
-//                     }),
-//                     headers: {
-//                         'Content-type': 'application/json; charset=UTF-8'
-//                     }
-//                 })
-//                 .then(response => response.json())
-//                 .then(json => {
-//                     console.log(json);
-//                     modal.style.display = "none";
-//                     sessionStorage.setItem("modalClosed", true);
-//                 });
-//             } else {
-//                 newsletterEmail.style.borderColor = 'red';
-//             }
-//         });
+    // Evento para mover a una imagen específica al hacer clic en un dot
+    let dots = document.querySelectorAll(".dots span");
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", function() {
+            contador = index;
+            document.getElementsByName("Imagen")[0].src = imagenes[contador];
+            actualizarDots();
+        });
+    });
+    dots[0].classList.add("active");
+    dots[1].classList.add("dot2");
+    dots[2].classList.add("dot3");
+    document.getElementsByName("Imagen")[0].src = imagenes[0];
+    setInterval(moverDerecha, 7000);
+});
