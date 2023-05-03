@@ -142,41 +142,48 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.addEventListener("DOMContentLoaded", function() {
     const cambioMoneda = document.getElementById("cambioMoneda");
+    let precioUSD = {
+        basico: 0,
+        profesional: 25,
+        premium: 60,
+    }
+
+    let i = 1;
+    Object.values(precioUSD).forEach(element => {
+        let precioHTML = document.querySelector(".box" + i + " #precio");
+        precioHTML.innerHTML = "$" + element;
+        i += 2;
+    });
 
     cambioMoneda.addEventListener("change", function() {
     const monedaSeleccionada = cambioMoneda.value;
-    obtenerTiposDeCambio(monedaSeleccionada);
+    obtenerTiposDeCambio(monedaSeleccionada, precioUSD);
     });
 });
-function obtenerTiposDeCambio(currency) {
-    const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`;
+function obtenerTiposDeCambio(currency, precios) {
+    const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json`;
 
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        const tiposDeCambio = data.rates;
-        
-        const precioUSD = tiposDeCambio.USD;
-        const precioEUR = tiposDeCambio.EUR;
-        const precioGBP = tiposDeCambio.GBP;
-        
-        const precioElements = document.querySelectorAll("#precio");
-        precioElements.forEach(element => {
-            switch (currency) {
-                case "USD":
-                    element.textContent = `$${precioUSD}`;
-                    break;
-                case "EUR":
-                    element.textContent = `€${precioEUR}`;
-                    break;
-                case "GBP":
-                    element.textContent = `£${precioGBP}`;
-                    break;
-            }
+        const currencies = currency.toLowerCase();
+        let valorCambio = parseFloat(data["usd"][currencies]);
+        let i = 1 ;
+        switch(currencies){
+            case "eur": 
+                moneda = "€";
+                break;
+            case "gbp":
+                moneda = "£";
+                break;
+            default: 
+                moneda = "$";
+        }
+        Object.values(precios).forEach(element => {
+            let precioHTML = document.querySelector(".box" + i + " #precio");
+            precioHTML.innerHTML = moneda + Math.round(element * valorCambio);
+            i += 2;
         });
-    })
-    .catch(error => {
-        console.error("Error al obtener los tipos de cambio:", error);
     });
 }
 

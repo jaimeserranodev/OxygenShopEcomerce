@@ -126,8 +126,8 @@
         <div class="selector">
             <span>Select the currency</span>
             <select name="cambioMoneda" id="cambioMoneda">
-                <option value="EUR">EUR</option>
                 <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
             </select>
         </div>
@@ -136,7 +136,7 @@
                 <div class="column-pricing1">
                     <div class="box1">
                         <p id="titulo">Basic</p>
-                        <p id="precio">$0</p>
+                        <p id="precio">$</p>
                     </div>
                     <div class="box2">
                         <li id="capacidad"><i id="checkon" class="fa-regular fa-square-check"></i>100 MB HDD</li>
@@ -153,7 +153,7 @@
                 <div class="column-pricing2">
                     <div class="box3">
                         <p id="titulo">Professional</p>
-                        <p id="precio">$25</p>
+                        <p id="precio">$</p>
                         <p id="oferta">Limited offer</p>
                     </div>
                     <div class="box4">
@@ -173,7 +173,7 @@
                         <div class="column-pricing3">
                             <div class="box5">
                                 <p id="titulo">Premium</p>
-                                <p id="precio">$60</p>
+                                <p id="precio">$</p>
                                 <p id="oferta">Limited offer</p>
                             </div>
                             <div class="box6">
@@ -255,12 +255,29 @@
         <!-- ---------------NEWSLETTER------------------------>
         <div id="modal" class="modal">
             <div class="modal-content">
-                <span id="closeModal" class="close">&times;</span>
-                <h2>Subscribe to our newsletter</h2>
+                <div>
+                    <span id="closeModal" class="close">&times;</span>
+                </div>
+                <div id="subscribe">
+                    <h2>Subscribe To Our Newsletter</h2>
+                </div>
+                <div id="p-newsletter">
+                    <p>
+                        Don't miss out on our latest news and updates! Subscribe to our newsletter and receive exclusive content, special offers, and helpful tips directly in your inbox. Sign up now and stay up-to-date with everything we have to offer!
+                    </p>
+                </div>
                 <form id="newsletterForm">
-                    <input type="email" id="emailNews" placeholder="Your email" required>
-                    <button id ="btnSub" type="submit">Subscribe</button>
+                    <div id="form">
+                        <input type="email" id="emailNews" placeholder="Your email" required>
+                    </div>
+                    <div id="button">
+                        <button id ="btnSub" type="submit">Subscribe</button>
+                    </div>
                 </form>
+                <div id="img-newsletter">
+                    <img src="/imagenes/PR_Monochromatic.png" alt="">
+                </div>
+                
             </div>
         </div>  
         

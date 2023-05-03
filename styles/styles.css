@@ -1137,11 +1137,34 @@ main {
 }
 
 .modal-content {
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 7% auto 3% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+#subscribe, #img-newsletter, #newsletterForm, #form-newsletter, #p-newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#subscribe img, #img-newsletter img, #newsletterForm img, #form-newsletter img, #p-newsletter img {
+  width: 300px;
+  height: 300px;
+}
+#subscribe p, #img-newsletter p, #newsletterForm p, #form-newsletter p, #p-newsletter p {
+  text-align: center;
+  font-family: "Open Sans";
+  margin: 2% 20%;
+}
+
+#newsletterForm #emailNews, #newsletterForm #btnSub {
+  border-radius: 50px;
+}
+#newsletterForm #emailNews {
+  padding-left: 10px;
 }
 
 .close {
