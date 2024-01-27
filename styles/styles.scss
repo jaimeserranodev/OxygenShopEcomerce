@@ -522,6 +522,15 @@ main{
             }
     }
 }
+.contenedor-pricing .column-pricing1 {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contenedor-pricing .column-pricing1:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 10px 30px rgba(251, 59, 100, 0.5);
+}
+
 #checkon{
     box-sizing: border-box;
     width: 11px;
@@ -555,7 +564,7 @@ main{
     border-left: #EB476E;
     border-top:#EB476E;
     transform: translateY(-25px);
-        p{
+        a{
             font-family: 'Open Sans';
             font-style: normal;
             font-weight: 700;
@@ -638,7 +647,14 @@ main{
                 }
         }
 }
+.contenedor-pricing2 .column-pricing2 {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
+.contenedor-pricing2 .column-pricing2:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 15px 30px rgba(7, 172, 230, 0.4);
+}
 #begin-btn2{
     width: 150px;
     height: 50px;
@@ -653,13 +669,13 @@ main{
     transform: translateY(-25px);
     justify-content: center;
     box-shadow: none;
-        p{
-            font-family: 'Open Sans';
-            font-style: normal;
+        a{
+            font-family: 'Open Sans', sans-serif;
             font-weight: 700;
             font-size: 13px;
-            line-height: 18px;
             color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
         }
 
 }
@@ -732,6 +748,15 @@ main{
                 }
         }    
 }
+.contenedor-pricing3 .column-pricing3{
+    transition: transform 0.3s ease-in-out;
+}
+
+.contenedor-pricing3 .column-pricing3:hover {
+    transform: scale(1.05);
+}
+
+
 #begin-btn3{
     width: 150px;
     height: 50px;
@@ -744,13 +769,13 @@ main{
     border-left: #55DFB4;
     border-top: #55DFB4;
     transform: translateY(-25px);
-        p{
-            font-family: 'Open Sans';
-            font-style: normal;
+        a{
+            font-family: 'Open Sans', sans-serif;
             font-weight: 700;
             font-size: 13px;
-            line-height: 18px;
             color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
         }
 }
 /* ---------FORMULARIO -------------- */
@@ -1153,6 +1178,7 @@ main{
 
 
 .modal {
+    
     display: none;
     position: fixed;
     justify-content: center;
@@ -1167,6 +1193,7 @@ main{
 }
 
 .modal-content {
+    border-radius: 20px;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     background-color: #fefefe;
     margin: 7% auto 3% auto;

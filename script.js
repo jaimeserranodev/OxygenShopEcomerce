@@ -194,9 +194,9 @@ function obtenerTiposDeCambio(currency, precios) {
 
 document.addEventListener("DOMContentLoaded", function() {
     let imagenes = [
-        "/imagenes/pexels-ezra-comeau-2387418.jpg",
-        "/imagenes/pexels-francesco-ungaro-2325446.jpg",
-        "/imagenes/pexels-jaime-reimer-2662116.jpg"
+        "imagenes/pexels-ezra-comeau-2387418.jpg",
+        "imagenes/pexels-francesco-ungaro-2325446.jpg",
+        "imagenes/pexels-jaime-reimer-2662116.jpg"
     ];
 
     let sliderDerecha = document.querySelector(".next-btn");
@@ -249,4 +249,31 @@ document.addEventListener("DOMContentLoaded", function() {
     dots[2].classList.add("dot3");
     document.getElementsByName("Imagen")[0].src = imagenes[0];
     setInterval(moverDerecha, 7000);
+});
+
+
+
+document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el envío tradicional del formulario
+
+    var email = document.getElementById('emailNews').value;
+    var successMessage = document.getElementById('successMessage');
+
+    if (email) { 
+        // Guardar el email en localStorage o realizar otras acciones necesarias
+
+        // Muestra el mensaje de éxito
+        successMessage.style.display = 'block';
+
+        // Opcional: Ocultar el modal después de un breve tiempo
+        setTimeout(function() {
+            document.getElementById('modal').style.display = 'none';
+        }, 2000);
+
+        // Opcional: Limpiar el campo de email
+        document.getElementById('emailNews').value = '';
+    } else {
+        // Manejar el caso en que el email está vacío o es inválido
+        // Muestra un mensaje de error o realiza otras acciones necesarias
+    }
 });
