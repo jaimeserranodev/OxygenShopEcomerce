@@ -440,6 +440,35 @@ main {
 }
 
 /* ----------------------- PRICING ------------------------- */
+.contenedor-select {
+  display: flex;
+  flex-direction: column;
+}
+
+#cambioMoneda {
+  margin-top: 20px;
+  background-color: #ffffff; /* Color de fondo del selector */
+  color: #333333; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno para hacerlo más grande y fácil de seleccionar */
+  font-size: 16px; /* Tamaño de la letra */
+  border: 2px solid #cccccc; /* Borde del selector */
+  border-radius: 5px; /* Bordes redondeados para una apariencia suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+  cursor: pointer; /* Cambiar el cursor a una mano para indicar que es interactivo */
+  transition: all 0.3s ease; /* Transición suave para los cambios de estilo */
+}
+
+#cambioMoneda:hover {
+  border-color: #888888; /* Cambiar el color del borde al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más prominente al pasar el mouse */
+}
+
+#cambioMoneda:focus {
+  outline: none; /* Eliminar el contorno predeterminado al enfocar */
+  border-color: #0056b3; /* Color del borde cuando el selector está enfocado */
+  box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.25); /* Sombra externa para indicar foco */
+}
+
 #h1-pricing {
   text-align: center;
   font-family: "Raleway";
@@ -1230,64 +1259,68 @@ main {
 }
 
 .slider {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.3s ease;
-}
-
-.slides img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.prev-btn {
-  position: absolute;
-  justify-content: space-between;
-  top: 50%;
-  left: 1%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.next-btn {
-  position: absolute;
-  justify-content: space-between;
-  top: 50%;
-  right: 1%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
-  cursor: pointer;
+  position: relative; /* Posicionamiento relativo para los botones absolutos */
+  width: 100%; /* Ajusta el ancho del slider al contenedor */
+  max-width: 800px; /* Máximo ancho del slider */
+  margin: auto; /* Centrar el slider horizontalmente */
+  overflow: hidden; /* Ocultar contenido fuera del contenedor */
 }
 
 .dots {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
+  text-align: center; /* Centrar los puntos indicadores */
+  padding: 10px 0; /* Espaciado arriba y abajo para los puntos */
 }
 
 .dots span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: gray;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
+  display: inline-block; /* Mostrar puntos en línea */
+  width: 10px; /* Ancho del punto */
+  height: 10px; /* Altura del punto */
+  margin: 0 5px; /* Espaciado entre puntos */
+  background-color: #ccc; /* Color de fondo de los puntos */
+  border-radius: 50%; /* Hacer los puntos redondos */
+  cursor: pointer; /* Cambiar cursor a puntero */
 }
 
 .dots span.active {
-  background-color: blue;
+  background-color: #333; /* Color de fondo para el punto activo */
+}
+
+.slides {
+  width: 100%; /* Ajusta el ancho de las diapositivas al contenedor */
+}
+
+.slides img {
+  width: 100%; /* Asegurar que la imagen cubra el ancho del contenedor */
+  display: block; /* Evitar espacio extra debajo de la imagen */
+}
+
+.prev-btn, .next-btn {
+  position: absolute; /* Posicionamiento absoluto para los botones */
+  top: 50%; /* Alinear botones verticalmente */
+  transform: translateY(-50%); /* Centrar botones */
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+  color: #fff; /* Color del texto */
+  border: none; /* Remover borde */
+  cursor: pointer; /* Cambiar cursor a puntero */
+  padding: 10px; /* Espaciado dentro del botón */
+}
+
+.prev-btn {
+  left: 10px; /* Posicionar botón anterior a la izquierda */
+}
+
+.next-btn {
+  right: 10px; /* Posicionar botón siguiente a la derecha */
+}
+
+.prev-btn button, .next-btn button {
+  font-size: 24px; /* Tamaño del ícono del botón */
+  background: none; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  color: white; /* Color del texto */
+}
+
+/* Añadir estilos para hover en los botones para mejorar la interactividad */
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Oscurecer botones al pasar el mouse */
 }/*# sourceMappingURL=styles.css.map */

@@ -193,62 +193,57 @@ function obtenerTiposDeCambio(currency, precios) {
 // SLIDER
 
 document.addEventListener("DOMContentLoaded", function() {
-    let imagenes = [
+    const imagenes = [
         "imagenes/pexels-ezra-comeau-2387418.jpg",
         "imagenes/pexels-francesco-ungaro-2325446.jpg",
         "imagenes/pexels-jaime-reimer-2662116.jpg"
     ];
 
-    let sliderDerecha = document.querySelector(".next-btn");
-    let sliderIzquierda = document.querySelector(".prev-btn");
+    const sliderDerecha = document.querySelector(".next-btn");
+    const sliderIzquierda = document.querySelector(".prev-btn");
     let contador = 0;
 
+    // Función para actualizar la imagen del slider
+    function actualizarImagen() {
+        document.querySelector("[name='Imagen']").src = imagenes[contador];
+        actualizarDots();
+    }
+
+    // Función para mover hacia la derecha
     function moverDerecha() {
-        contador++;
-        if (contador >= imagenes.length) {
-            contador = 0;
-
-        }
-        document.getElementsByName("Imagen")[0].src = imagenes[contador];
+        contador = (contador + 1) % imagenes.length;
+        actualizarImagen();
     }
 
-    document.getElementsByName("Imagen")[0].src = imagenes[0];
-    sliderDerecha.addEventListener("click", moverDerecha);
-
+    // Función para mover hacia la izquierda
     function moverIzquierda() {
-        contador--;
-        if (contador < 0) {
-            contador = imagenes.length - 1;
-        }
-        document.getElementsByName("Imagen")[0].src = imagenes[contador];
+        contador = (contador - 1 + imagenes.length) % imagenes.length;
+        actualizarImagen();
     }
+
+    // Función para actualizar los puntos indicadores
+    function actualizarDots() {
+        const dots = document.querySelectorAll(".dots span");
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === contador);
+        });
+    }
+
+    // Añadir eventos a los botones
     sliderDerecha.addEventListener("click", moverDerecha);
     sliderIzquierda.addEventListener("click", moverIzquierda);
-    function actualizarDots() {
-        let dots = document.querySelectorAll(".dots span");
-        dots.forEach((dot, index) => {
-            if (index === contador) {
-                dot.classList.add("active");
-            } else {
-                dot.classList.remove("active");
-            }
-        });
-    }
 
-    // Evento para mover a una imagen específica al hacer clic en un dot
-    let dots = document.querySelectorAll(".dots span");
-    dots.forEach((dot, index) => {
+    // Añadir evento a los dots para mover a imagen específica
+    document.querySelectorAll(".dots span").forEach((dot, index) => {
         dot.addEventListener("click", function() {
             contador = index;
-            document.getElementsByName("Imagen")[0].src = imagenes[contador];
-            actualizarDots();
+            actualizarImagen();
         });
     });
-    dots[0].classList.add("active");
-    dots[1].classList.add("dot2");
-    dots[2].classList.add("dot3");
-    document.getElementsByName("Imagen")[0].src = imagenes[0];
-    setInterval(moverDerecha, 7000);
+
+    // Establecer la imagen inicial y activar el primer dot
+    actualizarImagen();
+
 });
 
 
