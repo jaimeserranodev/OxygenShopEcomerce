@@ -1323,4 +1323,59 @@ main {
 /* Añadir estilos para hover en los botones para mejorar la interactividad */
 .prev-btn:hover, .next-btn:hover {
   background-color: rgba(0, 0, 0, 0.8); /* Oscurecer botones al pasar el mouse */
+}
+
+.success-message {
+  color: green;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.container-field {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+#form-newsletter {
+  margin-bottom: 20px;
+}
+
+#successMessage {
+  display: none; /* Inicialmente oculto */
+  position: fixed; /* Posicionamiento fijo en relación con la ventana del navegador */
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Ajuste fino para centrar exactamente */
+  background-color: white; /* Fondo blanco */
+  color: green; /* Texto verde */
+  padding: 20px; /* Espaciado interno */
+  border: 2px solid green; /* Borde verde */
+  border-radius: 5px; /* Bordes redondeados */
+  z-index: 1000; /* Asegura que el mensaje esté por encima de otros elementos */
+  text-align: center; /* Texto centrado dentro del div */
+  width: 80%; /* Ancho del mensaje */
+  max-width: 400px; /* Ancho máximo para evitar que sea demasiado grande */
+}
+
+#btn-cta:hover {
+  background-color: #0056b3; /* Color de fondo más oscuro al hacer hover */
+  color: white; /* Mantener el color de texto blanco */
+}
+
+#btn-cta {
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Color de texto blanco */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
 }/*# sourceMappingURL=styles.css.map */

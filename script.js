@@ -248,27 +248,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-document.getElementById('newsletterForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevenir el envío tradicional del formulario
 
-    var email = document.getElementById('emailNews').value;
-    var successMessage = document.getElementById('successMessage');
 
-    if (email) { 
-        // Guardar el email en localStorage o realizar otras acciones necesarias
 
-        // Muestra el mensaje de éxito
-        successMessage.style.display = 'block';
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("formulario2").addEventListener("submit", function(event) {
+        event.preventDefault(); // Previene el envío predeterminado para validar
 
-        // Opcional: Ocultar el modal después de un breve tiempo
+        var nameInput = document.getElementById("nameInput").value;
+        var emailInput = document.getElementById("emailInput").value;
+        var checkbox = document.getElementById("checkbox").checked;
+
+        // Validación de campos del formulario
+        if (nameInput.length >= 2 && nameInput.length <= 100 && emailInput && checkbox) {
+            // Todos los campos son válidos, muestra el mensaje de éxito
+            var successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
+            
+
+            setTimeout(function() {
+                successMessage.style.display = "none";
+            }, 5000);
+            // Opcional: Ocultar el formulario o realizar otras acciones después del envío exitoso
+        } else {
+            // Si algún campo no es válido, muestra un mensaje de error
+            alert("Please fill in all the fields correctly.");
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    var newsletterForm = document.getElementById("newsletterForm");
+    newsletterForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Previene el envío tradicional del formulario.
+        
+        var successMessage = document.getElementById("successMessage"); // Asegúrate de tener esta línea para definir successMessage
+        successMessage.style.display = "block";
+        successMessage.innerHTML = "Thank you for subscribing!";
+        
+        // Opcional: Limpia el campo de email después de mostrar el mensaje de éxito.
         setTimeout(function() {
-            document.getElementById('modal').style.display = 'none';
-        }, 2000);
-
-        // Opcional: Limpiar el campo de email
-        document.getElementById('emailNews').value = '';
-    } else {
-        // Manejar el caso en que el email está vacío o es inválido
-        // Muestra un mensaje de error o realiza otras acciones necesarias
-    }
+            successMessage.style.display = "none"; // Ahora successMessage está definido correctamente.
+        }, 3000);
+        
+        document.getElementById("emailNews").value = "";
+    });
 });

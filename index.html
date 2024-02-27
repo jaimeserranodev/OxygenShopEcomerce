@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/styles.scss">
     <link rel="stylesheet" href="styles/styles.css.map">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://kit.fontawesome.com/0d4d477689.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +51,7 @@
             <h3>Sell More!</h3>
             <p>Open shop on our platform and increase your sales</p>
             <div id="boton">
-                <button><a href="">Open your shop</a></button>
+                <button id="btn-cta"><a href="#grip-formulario">Open your shop</a></button>
             </div>
         </div>
         
@@ -239,6 +240,9 @@
             <div class="send">
                 <button  id="send" type="submit" value="clicked"><p id="tx-btn">Send</p></button>
             </div>
+            <div id="successMessage" style="display:none;" class="success-message">
+                You have successfully registered!
+            </div>
         </div>
         </form>
         
@@ -246,10 +250,10 @@
         <div class="footer">
             <div class="column1">
                 <p id="footer-logo">OXYGENShop</p>
-                <p id="copiright">© 2022 OXYGEN, All Rights Reserved</p>
+                <p id="copiright">© 2024 OXYGEN, All Rights Reserved</p>
             </div>
             <div class="column2">
-                <a href="https://twitter.com/?lang=es"><i id="twitter" class="fa-brands fa-twitter"></a></i>
+                <a href="https://twitter.com/?lang=es"><i id="twitter" class="fa-brands fa-x-twitter"></i></a></i>
                 <a href="https://es-es.facebook.com/"><i id="facebook" class="fa-brands fa-facebook"> </a></i>
             </div>
 
@@ -270,12 +274,15 @@
                     </p>
                 </div>
                 <form id="newsletterForm">
-                    <div id="form-newsletter">
-                        <input type="email" id="emailNews" placeholder="Your email" required>
+                    <div class="container-field">
+                        <div id="form-newsletter">
+                            <input type="email" id="emailNews" placeholder="Your email" required>
+                        </div>
+                        <div id="button">
+                            <button id ="btnSub" type="submit">Subscribe</button>
+                        </div>
                     </div>
-                    <div id="button">
-                        <button id ="btnSub" type="submit">Subscribe</button>
-                    </div>
+                    
                 </form>
                 <div id="successMessage" style="display: none; color: green;">
                     ¡Te has registrado correctamente!
